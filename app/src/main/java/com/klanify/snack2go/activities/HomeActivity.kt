@@ -1,8 +1,10 @@
 package com.klanify.snack2go.activities
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.klanify.snack2go.R
 
@@ -31,6 +33,10 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setup(email: String, provider: String){
         title = "Home"
+        findViewById<LinearLayout>(R.id.profile_button).setOnClickListener{
+            showProfile(email,provider)
+        }
+
         """findViewById<TextView>(R.id.username).text = email
         findViewById<TextView>(R.id.TextProvider).text = provider
         findViewById<Button>(R.id.logoutButton).setOnClickListener{
@@ -48,5 +54,12 @@ class HomeActivity : AppCompatActivity() {
     }
     override fun onBackPressed() {
         // No hacemos nada aquí para evitar que el usuario regrese a la actividad anterior
+    }
+    private fun showProfile(email:String, provider: String){
+        val profileIntent : Intent = Intent(this, ProfileActivity::class.java).apply {
+            putExtra("email",email)
+            putExtra("provider",provider)
+        }
+        startActivity(profileIntent)
     }
 }

@@ -29,46 +29,57 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/greetingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
-                    android:text="Hi, Aisaac"
+                    android:text="Hola, "
+                    android:textColor="@color/secondary_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="Aisaac"
                     android:textColor="@color/primary_color"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/greetingText"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/actionText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:text="Haz tu pedido"
                     android:textColor="@color/secondary_color"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView2"
-                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintStart_toStartOf="@+id/greetingText"
+                    app:layout_constraintTop_toBottomOf="@+id/username"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/profile_photo"
                     android:layout_width="70dp"
                     android:layout_height="68dp"
                     android:layout_marginEnd="32dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintBottom_toBottomOf="@+id/actionText"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView2"
+                    app:layout_constraintTop_toTopOf="@+id/username"
                     app:srcCompat="@mipmap/account" />
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/searchText"
                     android:layout_width="0dp"
                     android:layout_height="50sp"
                     android:layout_marginStart="32dp"
@@ -90,7 +101,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4"
+                    app:layout_constraintTop_toBottomOf="@+id/actionText"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -103,10 +114,10 @@
                     android:background="@drawable/banner"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText">
+                    app:layout_constraintTop_toBottomOf="@+id/searchText">
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/adImage"
                         android:layout_width="100sp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -128,8 +139,8 @@
                         android:textSize="16sp"
                         android:textStyle="normal"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView4"
-                        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+                        app:layout_constraintStart_toEndOf="@+id/adImage"
+                        app:layout_constraintTop_toTopOf="@+id/adImage" />
 
                     <TextView
                         android:id="@+id/textView7"
@@ -145,7 +156,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/orderNow_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -160,7 +171,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/categoryText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -168,22 +179,22 @@
                     android:text="Categorias"
                     android:textColor="@color/secondary_color"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+                    app:layout_constraintBottom_toTopOf="@+id/category_recyclerView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
+                    android:id="@+id/category_recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView9"
+                    app:layout_constraintBottom_toTopOf="@+id/popularText"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                    app:layout_constraintTop_toBottomOf="@+id/categoryText" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/popularText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -192,15 +203,16 @@
                     android:textColor="@color/secondary_color"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+                    app:layout_constraintTop_toBottomOf="@+id/category_recyclerView" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/popular_recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView9"
+                    app:layout_constraintTop_toBottomOf="@+id/popularText"
                     app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -216,6 +228,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cart_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -269,7 +282,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/cuenta_button"
+                    android:id="@+id/profile_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -277,15 +290,17 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/profileImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:srcCompat="@mipmap/profile" />
 
                     <TextView
+                        android:id="@+id/profileText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cuenta"
+                        android:text="Perfil"
                         android:textAlignment="center"
                         android:textColor="@color/gris_natural"
                         android:textSize="12sp" />
@@ -305,12 +320,14 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/ordersImage"
                         android:layout_width="wrap_content"
                         android:layout_height="0sp"
                         android:layout_weight="1"
                         app:srcCompat="@mipmap/orders" />
 
                     <TextView
+                        android:id="@+id/ordersText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pedidos"
@@ -329,12 +346,14 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/settingsImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:srcCompat="@mipmap/settings" />
 
                     <TextView
+                        android:id="@+id/settingsText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Config"

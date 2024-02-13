@@ -63,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setup(){
         val signinbutton = findViewById<Button>(R.id.signinButton)
-        val googlebutton = findViewById<Button>(R.id.googlebutton)
+        val googlebutton = findViewById<Button>(R.id.logout_button)
         val facebookbutton = findViewById<Button>(R.id.fbbutton)
         val email = findViewById<EditText>(R.id.TextEmailAddress)
         val password = findViewById<EditText>(R.id.TextPassword)
