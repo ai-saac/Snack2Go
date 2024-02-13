@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Snack2Go</string>
+    <string name="subtitle">Pedidos en Línea</string>
+    <string name="prefs_file">com.klanify.snack2go.PREFERENCE_KEY_FILE</string>
+    <string name="default_web_client_id">790187558592-ick0toqk9alc30oeeg71qjcoi0isnd4o.apps.googleusercontent.com</string>
+
+    <string name="facebook_app_id">305897435803136</string>
+    <string name="fb_login_protocol_scheme">fb305897435803136</string>
+    <string name="facebook_client_token">8562afe0478e930678b0b9f58c389d91</string>
+
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="sign_in">Iniciar Sesión</string>
+    <string name="no_account">No tienes una cuenta? </string>
+    <string name="already_account">Ya tienes una cuenta? </string>
+    <string name="sign_up">Crear cuenta </string>
+    <string name="google_sign_up_description">Google Sign Up</string>
+    <string name="fb_sign_up_description">Facebook Sign Up</string>
+    <string name="x_sign_up_description">X Sign Up</string>
+
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="sign_out">Cerrar Sesión</string>
+
+    <string name="texto_registro">O registrate con</string>
+    <string name="texto_inicio_sesion">O continua con</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+</resources>

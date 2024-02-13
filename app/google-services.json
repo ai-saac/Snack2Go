@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "790187558592",
+    "firebase_url": "https://snack2go-be16e-default-rtdb.firebaseio.com",
+    "project_id": "snack2go-be16e",
+    "storage_bucket": "snack2go-be16e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790187558592:android:4179a105cc8b820a350f25",
+        "android_client_info": {
+          "package_name": "com.klanify.snack2go"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790187558592-n7i8n7q36qn4rcldfpisaic8e20scjti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.klanify.snack2go",
+            "certificate_hash": "a5622d3a000c7b614b39ca3b8d322023d334e61e"
+          }
+        },
+        {
+          "client_id": "790187558592-ick0toqk9alc30oeeg71qjcoi0isnd4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVFu33BClN82iG2NMfzQv-HS_vnCSrNWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790187558592-ick0toqk9alc30oeeg71qjcoi0isnd4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="primary_color">@color/rojo</color>
+    <color name="secondary_color">@color/white</color>
+    <color name="color_accent">@color/mostaza</color>
+    <color name="primary_color_light">@color/white</color>
+    <color name="banner_color">@color/rojo</color>
+    <color name="buttonText">@color/rojo</color>
+    <color name="banner_buttonText">@color/white</color>
+    <color name="buttonStroke">@color/white</color>
+
+    <color name="fb_blue">#1877F2</color>
+    <color name="mostaza">#F9B233</color>
+    <color name="rojo">#E6332A</color>
+    <color name="cafe">#5B250A</color>
+    <color name="westar">#e0dcd2</color>
+    <color name="sunglow">#E8B34B</color>
+    <color name="crete">#726827</color>
+    <color name="vino">#7F261F</color>
+    <color name="gris_natural">#93908A</color>
+    <color name="gris_claro">#ECECEC</color>
+    <color name="emperor">#545454</color>
+    <color name="lima">#94C31C</color>
+    <color name="kumera">#8c6e26</color>
+</resources>

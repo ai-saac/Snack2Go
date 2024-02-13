@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:insetLeft="8sp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <bitmap
+        android:src="@mipmap/hamburguesa_doble"
+        android:gravity="center_vertical|start"
+        android:width="50sp"
+        android:height="50sp" />
+</inset>
