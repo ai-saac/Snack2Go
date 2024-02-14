@@ -4,6 +4,7 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="android:statusBarColor">@android:color/background_dark</item>
+        <item name="backgroundColor">@color/background</item>
     </style>
     <style name="Theme.FirebaseTutorial" parent="Base.Theme.FirebaseTutorial">
         <item name="android:windowBackground">@drawable/splashscreennight</item>>

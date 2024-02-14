@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
+    <color name="background">#121212</color>
 
     <color name="primary_color">@color/rojo</color>
     <color name="secondary_color">@color/white</color>
@@ -10,6 +11,7 @@
     <color name="primary_color_light">@color/white</color>
     <color name="banner_color">@color/rojo</color>
     <color name="buttonText">@color/rojo</color>
+    <color name="profile_color">@color/white</color>
     <color name="banner_buttonText">@color/white</color>
     <color name="buttonStroke">@color/white</color>
 

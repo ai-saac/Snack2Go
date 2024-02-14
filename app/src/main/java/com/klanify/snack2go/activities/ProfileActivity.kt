@@ -5,7 +5,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
@@ -15,6 +17,8 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+        findViewById<ImageView>(R.id.profileImage).setImageResource(R.mipmap.profilerojo)
+        findViewById<TextView>(R.id.profileText).setTextColor(getResources().getColor(R.color.primary_color))
         val bundle : Bundle? = intent.extras
         val email : String? = bundle?.getString("email")
         val provider : String? = bundle?.getString("provider")
@@ -35,5 +39,29 @@ class ProfileActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(this, LoginActivity::class.java))
         }
+    }
+
+    fun onHomeButtonClick(view: View) {
+        val homeIntent = Intent(this, HomeActivity::class.java)
+        homeIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+        startActivity(homeIntent)
+    }
+
+    fun onNotificacionButtonClick(view: View) {
+        val notificacionIntent = Intent(this, NotificacionActivity::class.java)
+        notificacionIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+        startActivity(notificacionIntent)
+    }
+
+    fun onOrdersButtonClick(view: View) {
+        val ordersIntent = Intent(this, OrdersActivity::class.java)
+        ordersIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+        startActivity(ordersIntent)
+    }
+
+    fun onShoppingcartButtonClick(view: View) {
+        val shoppingcartIntent = Intent(this, ShoppingcartActivity::class.java)
+        shoppingcartIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+        startActivity(shoppingcartIntent)
     }
 }

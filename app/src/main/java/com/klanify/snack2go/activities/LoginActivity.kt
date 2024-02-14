@@ -50,6 +50,9 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    //Función para registar las credenciales de inicio de sesión
+    //Qué permite que cuando el usario deje de usar la aplicación vuelva a la pantalla de inicio
+    //y no a la de login.
     private fun sesion(){
         lateinit var prefs : SharedPreferences
         prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
@@ -57,6 +60,7 @@ class LoginActivity : AppCompatActivity() {
         val provider :String? = prefs.getString("provider", null)
 
         if(email != null && provider != null ){
+            //Inicio de la Home Activity
             showHome(email, ProviderType.valueOf(provider))
         }
     }
@@ -70,6 +74,7 @@ class LoginActivity : AppCompatActivity() {
         val label = findViewById<TextView>(R.id.signupLabel)
 
         title = "Authentication"
+        //Inicio de Sesión con Usuario y Contraseña
         signinbutton.setOnClickListener{
             if(email.text.isNotEmpty() && password.text.isNotEmpty()) {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(
@@ -89,6 +94,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        //Inicio con Usuario de Google
         googlebutton.setOnClickListener{
             val googleConf :GoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -100,6 +106,7 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        //Inicio con Usuario de Facebook
         facebookbutton.setOnClickListener{
             LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
             LoginManager.getInstance().registerCallback(callbackmanager,
@@ -111,6 +118,7 @@ class LoginActivity : AppCompatActivity() {
                             FirebaseAuth.getInstance().signInWithCredential(credential)
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
+                                        //Funcion que inicia la Home Activity
                                         showHome(it.result?.user?.email ?: "", ProviderType.FACEBOOK)
                                     } else {
                                         showAlert()
@@ -129,6 +137,7 @@ class LoginActivity : AppCompatActivity() {
                 })
         }
 
+        //Acción del texto de registro de usuario
         label.setOnClickListener{
             startActivity(Intent(this, RegisterActivity::class.java))
         }
@@ -144,6 +153,7 @@ class LoginActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    //Función para iniciar la Home Activity enviando el usuario y tipo de autenticación
     private fun showHome(email:String, provider: ProviderType){
         val homeIntent : Intent = Intent(this, HomeActivity::class.java).apply {
             putExtra("email",email)
@@ -154,10 +164,11 @@ class LoginActivity : AppCompatActivity() {
 
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        //Se ejecuta on la autenticación de Facebook
         callbackmanager.onActivityResult(requestCode, resultCode, data)
 
         super.onActivityResult(requestCode, resultCode, data)
-
+        //Se ejecuta con la autenticación de Google
         if(requestCode == GOOGLESIGNIN){
             val task :Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
@@ -167,6 +178,7 @@ class LoginActivity : AppCompatActivity() {
                     FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
+                                //
                                 showHome(account.email ?: "", ProviderType.GOOGLE)
                             } else {
                                 showAlert()
@@ -177,5 +189,9 @@ class LoginActivity : AppCompatActivity() {
                 showAlert()
             }
         }
+    }
+
+    override fun onBackPressed() {
+        // No hacemos nada aquí para evitar que el usuario regrese a la actividad anterior
     }
 }

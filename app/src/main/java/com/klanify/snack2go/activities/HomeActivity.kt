@@ -4,7 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.klanify.snack2go.R
 
@@ -19,6 +22,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        findViewById<ImageView>(R.id.homeIcon).setImageResource(R.mipmap.homerojo)
+        findViewById<TextView>(R.id.homeText).setTextColor(getResources().getColor(R.color.primary_color))
         val bundle : Bundle? = intent.extras
         val email : String? = bundle?.getString("email")
         val provider : String? = bundle?.getString("provider")
@@ -61,5 +66,29 @@ class HomeActivity : AppCompatActivity() {
             putExtra("provider",provider)
         }
         startActivity(profileIntent)
+    }
+
+    /*fun onProfileButtonClick(view: View) {
+        val intent = Intent(this, ProfileActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+        startActivity(intent)
+    }*/
+
+    fun onNotificacionButtonClick(view: View) {
+        val notificacionIntent = Intent(this, NotificacionActivity::class.java)
+        notificacionIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+        startActivity(notificacionIntent)
+    }
+
+    fun onOrdersButtonClick(view: View) {
+        val ordersIntent = Intent(this, OrdersActivity::class.java)
+        ordersIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+        startActivity(ordersIntent)
+    }
+
+    fun onShoppingcartButtonClick(view: View) {
+        val shoppingcartIntent = Intent(this, ShoppingcartActivity::class.java)
+        shoppingcartIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+        startActivity(shoppingcartIntent)
     }
 }

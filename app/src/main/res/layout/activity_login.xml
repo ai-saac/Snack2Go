@@ -7,164 +7,179 @@
     android:layout_height="match_parent"
     android:background="@mipmap/background1"
     android:orientation="vertical"
-    android:padding="32sp"
     tools:context=".activities.LoginActivity">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="54sp"
-        android:layout_marginTop="160sp"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textColor="@color/primary_color"
-        android:textSize="45sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/subtitle"
-        android:textAlignment="center"
-        android:textColor="@color/secondary_color"
-        android:textSize="17sp"
-        android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32sp">
 
-    <EditText
-        android:id="@+id/TextEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="55sp"
-        android:layout_marginTop="60sp"
-        android:autofillHints="emailAddress"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="54sp"
+                android:layout_marginTop="160sp"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textColor="@color/primary_color"
+                android:textSize="45sp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/TextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="55sp"
-        android:layout_marginTop="8dp"
-        android:autofillHints="password"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/subtitle"
+                android:textAlignment="center"
+                android:textColor="@color/secondary_color"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/signinButton"
-        android:layout_width="match_parent"
-        android:layout_height="55sp"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="@color/primary_color"
-        android:text="@string/sign_in"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+            <EditText
+                android:id="@+id/TextEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="60sp"
+                android:autofillHints="emailAddress"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="8sp" />
+            <EditText
+                android:id="@+id/TextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="8dp"
+                android:autofillHints="password"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+            <Button
+                android:id="@+id/signinButton"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/primary_color"
+                android:text="@string/sign_in"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <View
-            android:id="@+id/divider1"
-            android:layout_width="0sp"
-            android:layout_height="1sp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:background="?android:attr/listDivider" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="8sp" />
 
-        <Space
-            android:layout_width="8sp"
-            android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20sp"
-            android:gravity="center"
-            android:text="O"
-            android:textAlignment="center"
-            android:textColor="@color/secondary_color"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="0sp"
+                    android:layout_height="1sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="?android:attr/listDivider" />
 
-        <Space
-            android:layout_width="8sp"
-            android:layout_height="wrap_content" />
+                <Space
+                    android:layout_width="8sp"
+                    android:layout_height="wrap_content" />
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="0sp"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:background="?android:attr/listDivider" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20sp"
+                    android:gravity="center"
+                    android:text="O"
+                    android:textAlignment="center"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-    </LinearLayout>
+                <Space
+                    android:layout_width="8sp"
+                    android:layout_height="wrap_content" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="8sp" />
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="0sp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="?android:attr/listDivider" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/logout_button"
-        android:layout_width="match_parent"
-        android:layout_height="45sp"
-        android:background="@drawable/round_btn"
-        android:drawableStart="@drawable/googlebutton"
-        android:text="Continua con Google         "
-        android:textAlignment="center"
-        android:textColor="@color/gris_natural"
-        android:textStyle="bold" />
+            </LinearLayout>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="8sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8sp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/fbbutton"
-        android:layout_width="match_parent"
-        android:layout_height="45sp"
-        android:background="@drawable/round_btn"
-        android:backgroundTint="@color/fb_blue"
-        android:drawableStart="@drawable/fbbutton"
-        android:text="Continua con Facebook       "
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textStyle="bold" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/logout_button"
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:background="@drawable/round_btn"
+                android:drawableStart="@drawable/googlebutton"
+                android:text="Continua con Google         "
+                android:textAlignment="center"
+                android:textColor="@color/gris_natural"
+                android:textStyle="bold" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fbbutton"
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:background="@drawable/round_btn"
+                android:backgroundTint="@color/fb_blue"
+                android:drawableStart="@drawable/fbbutton"
+                android:text="Continua con Facebook       "
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/no_account"
-            android:textColor="@color/secondary_color"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20sp" />
 
-        <TextView
-            android:id="@+id/signupLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:text="@string/sign_up"
-            android:textColor="@color/primary_color"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/no_account"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/signupLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center"
+                    android:text="@string/sign_up"
+                    android:textColor="@color/primary_color"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </LinearLayout>

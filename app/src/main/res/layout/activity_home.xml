@@ -5,6 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context=".activities.HomeActivity">
 
@@ -14,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="50dp"
+        android:background="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="Aisaac"
+                    android:text="Miguel"
                     android:textColor="@color/primary_color"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -176,7 +178,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="18sp"
-                    android:text="Categorias"
+                    android:text="Productos"
                     android:textColor="@color/secondary_color"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/category_recyclerView"
@@ -199,7 +201,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="8dp"
-                    android:text="Destacados"
+                    android:text="Menú del Día"
                     android:textColor="@color/secondary_color"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -237,7 +239,8 @@
             android:contentDescription="TODO"
             android:elevation="3dp"
             android:src="@mipmap/shopping_cart"
-            app:backgroundTint="@color/primary_color">
+            app:backgroundTint="@color/primary_color"
+            android:onClick="onShoppingcartButtonClick">
 
         </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
@@ -262,16 +265,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:backgroundTint="#9C27B0"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/homeIcon"
                         android:layout_width="match_parent"
                         android:layout_height="0sp"
                         android:layout_weight="1"
                         app:srcCompat="@mipmap/home" />
 
                     <TextView
+                        android:id="@+id/homeText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Inicio"
@@ -317,7 +323,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:onClick="onOrdersButtonClick">
 
                     <ImageView
                         android:id="@+id/ordersImage"
@@ -338,25 +345,26 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/settings_button"
+                    android:id="@+id/notificacion_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:onClick="onNotificacionButtonClick">
 
                     <ImageView
-                        android:id="@+id/settingsImage"
+                        android:id="@+id/notificacionImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@mipmap/settings" />
+                        app:srcCompat="@mipmap/notificacion" />
 
                     <TextView
-                        android:id="@+id/settingsText"
+                        android:id="@+id/notificacionText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Config"
+                        android:text="Mensajes"
                         android:textAlignment="center"
                         android:textColor="@color/gris_natural"
                         android:textSize="12sp" />

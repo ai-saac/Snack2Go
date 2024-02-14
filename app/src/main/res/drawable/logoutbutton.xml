@@ -4,5 +4,5 @@
         android:src="@mipmap/logout"
         android:gravity="center_vertical|start"
         android:width="20sp"
-        android:height="20sp" />
+        android:height="20sp"/>
 </inset>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background"
     tools:context=".activities.ProfileActivity">
 
     <ScrollView
@@ -19,7 +19,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/background">
 
                 <TextView
                     android:id="@+id/profileTitle"
@@ -36,8 +37,8 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="110dp"
-                    android:layout_height="126dp"
+                    android:layout_width="108dp"
+                    android:layout_height="116dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -57,9 +58,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        android:text="Aisaac Joel"
+                        android:text="Miguel Felipe"
                         android:textAlignment="center"
-                        android:textColor="@color/secondary_color"
+                        android:textColor="@color/profile_color"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
@@ -91,15 +92,16 @@
 
                         <ImageView
                             android:id="@+id/imageView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@android:drawable/stat_sys_phone_call" />
+                            android:layout_width="22dp"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@mipmap/phone" />
 
                         <TextView
                             android:id="@+id/textView4"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="+593 994617267"
+                            android:layout_height="match_parent"
+                            android:paddingStart="10sp"
+                            android:text="+593 999417120"
                             android:textColor="@color/gris_natural"
                             android:textSize="16sp" />
 
@@ -108,20 +110,21 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="8sp">
+                        android:layout_marginTop="8sp"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/emailImage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@android:drawable/stat_sys_phone_call" />
+                            android:layout_width="22dp"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@mipmap/email" />
 
                         <TextView
                             android:id="@+id/emailText"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="aisaac.joel01@gmail.com"
+                            android:layout_height="match_parent"
+                            android:hint="Correo Electrónico"
+                            android:paddingStart="10sp"
                             android:textColor="@color/gris_natural"
                             android:textSize="16sp" />
 
@@ -154,7 +157,7 @@
                             android:layout_height="wrap_content"
                             android:text="$ 5.00"
                             android:textAlignment="center"
-                            android:textColor="@color/secondary_color"
+                            android:textColor="@color/profile_color"
                             android:textSize="25sp"
                             android:textStyle="bold" />
 
@@ -198,20 +201,130 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <TextView
+                    android:id="@+id/editProfile_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/background"
+                    android:drawableStart="@mipmap/edit"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/secondary_color"
+                    android:elevation="0dp"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingStart="32sp"
+                    android:text="Editar Perfil"
+                    android:textAllCaps="false"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/favorites_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                <TextView
+                    android:id="@+id/favorites_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    android:backgroundTint="@color/background"
+                    android:drawableStart="@mipmap/favorite"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/secondary_color"
+                    android:gravity="center_vertical"
+                    android:paddingStart="32sp"
+                    android:text="Favoritos"
+                    android:textAllCaps="false"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/ordersHistory_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editProfile_button"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/ordersHistory_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    android:backgroundTint="@color/background"
+                    android:drawableStart="@mipmap/history"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/secondary_color"
+                    android:gravity="center_vertical"
+                    android:paddingStart="32sp"
+                    android:text="Historial de Pedidos"
+                    android:textAllCaps="false"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/preferences_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/favorites_button"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/preferences_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    android:backgroundTint="@color/background"
+                    android:drawableStart="@mipmap/burger"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/secondary_color"
+                    android:gravity="center_vertical"
+                    android:paddingStart="32sp"
+                    android:text="Preferencias"
+                    android:textAllCaps="false"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/settings_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ordersHistory_button"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/settings_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    android:backgroundTint="@color/background"
+                    android:drawableStart="@mipmap/settings"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/secondary_color"
+                    android:gravity="center_vertical"
+                    android:paddingStart="32sp"
+                    android:text="Configuración"
+                    android:textAllCaps="false"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/logout_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/preferences_button"
+                    app:layout_constraintVertical_bias="0.0" />
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/logout_button"
                     android:layout_width="match_parent"
                     android:layout_height="55sp"
-                    android:backgroundTint="@color/white"
-                    android:drawableStart="@drawable/logoutbutton"
+                    android:backgroundTint="@color/background"
+                    android:drawableStart="@mipmap/logout"
                     android:drawablePadding="20sp"
+                    android:drawableTint="@color/primary_color"
+                    android:gravity="center_vertical"
+                    android:paddingStart="32sp"
                     android:text="Cerrar Sesión"
-                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
                     android:textColor="@color/rojo"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                    app:layout_constraintTop_toBottomOf="@+id/settings_button"
                     app:layout_constraintVertical_bias="0.0"
                     tools:layout_editor_absoluteX="0dp" />
 
@@ -237,7 +350,8 @@
             android:contentDescription="TODO"
             android:elevation="3dp"
             android:src="@mipmap/shopping_cart"
-            app:backgroundTint="@color/primary_color">
+            app:backgroundTint="@color/primary_color"
+            android:onClick="onShoppingcartButtonClick">
 
         </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
@@ -263,7 +377,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:onClick="onHomeButtonClick">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -317,7 +432,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:onClick="onOrdersButtonClick">
 
                     <ImageView
                         android:id="@+id/ordersImage"
@@ -338,25 +454,26 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/settings_button"
+                    android:id="@+id/notificacion_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:onClick="onNotificacionButtonClick">
 
                     <ImageView
-                        android:id="@+id/settingsImage"
+                        android:id="@+id/notificacionImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@mipmap/settings" />
+                        app:srcCompat="@mipmap/notificacion" />
 
                     <TextView
                         android:id="@+id/settingsText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Config"
+                        android:text="Mensajes"
                         android:textAlignment="center"
                         android:textColor="@color/gris_natural"
                         android:textSize="12sp" />
