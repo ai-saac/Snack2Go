@@ -1,4 +1,4 @@
-package com.klanify.snack2go.activities
+package com.klanify.snack2go.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

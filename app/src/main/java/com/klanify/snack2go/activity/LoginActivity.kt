@@ -1,4 +1,4 @@
-package com.klanify.snack2go.activities
+package com.klanify.snack2go.activity
 
 import android.content.Context
 import android.content.Intent
@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         Thread.sleep(2000)
-        setTheme(R.style.Base_Theme_FirebaseTutorial)
+        setTheme(R.style.Base_Theme_Snack2Go)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         setup()

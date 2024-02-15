@@ -1,57 +1,81 @@
 package com.klanify.snack2go.logic;
 
 public class Producto {
-    private int IDProducto;
-    private String Nombre;
-    private String Descripcion;
-    private float Precio;
-    private int StockActual;
+    private int idProducto;
+    private String nombre;
+    private String imagen;
+    private String descripcion;
+    private float precio;
+    private int stock;
+    private CategoriaProductos categoria;
 
-    public Producto(int IDProducto, String nombre, String descripcion, float precio, int stockActual) {
-        this.IDProducto = IDProducto;
-        this.Nombre = nombre;
-        this.Descripcion = descripcion;
-        this.Precio = precio;
-        this.StockActual = stockActual;
+    public Producto(String nombre, String imagen){
+        this.nombre = nombre;
+        this.imagen = imagen;
+    }
+    public Producto(int idProducto, String nombre, String imagen, String descripcion, float precio,
+                    int stock, CategoriaProductos categoria) {
+        this.idProducto = idProducto;
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.stock = stock;
+        this.categoria = categoria;
     }
 
     public int getIDProducto() {
-        return IDProducto;
+        return idProducto;
     }
 
-    public void setIDProducto(int IDProducto) {
-        this.IDProducto = IDProducto;
+    public void setIDProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        nombre = nombre;
     }
 
+    public void setImagen(String imagen){
+        this.imagen = imagen;
+    }
+
+    public String getImagen(){
+        return imagen;
+    }
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        descripcion = descripcion;
     }
 
     public float getPrecio() {
-        return Precio;
+        return precio;
     }
 
     public void setPrecio(float precio) {
-        Precio = precio;
+        this.precio = precio;
     }
 
-    public int getStockActual() {
-        return StockActual;
+    public int getStock() {
+        return stock;
     }
 
-    public void setStockActual(int stockActual) {
-        StockActual = stockActual;
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public CategoriaProductos getCategoria(){
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaProductos categoria){
+        this.categoria = categoria;
     }
 }

@@ -1,4 +1,4 @@
-package com.klanify.snack2go.activities
+package com.klanify.snack2go.activity
 
 import android.content.Context
 import android.content.Intent

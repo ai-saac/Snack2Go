@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".activities.HomeActivity">
+    tools:context=".activity.HomeActivity">
 
 
     <ScrollView
@@ -78,7 +78,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/actionText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/username"
-                    app:srcCompat="@mipmap/account" />
+                    app:srcCompat="@mipmap/account"/>
 
                 <EditText
                     android:id="@+id/searchText"
@@ -180,13 +180,14 @@
                     android:layout_marginTop="18sp"
                     android:text="Productos"
                     android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/category_recyclerView"
+                    app:layout_constraintBottom_toTopOf="@+id/products_recyclerView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/category_recyclerView"
+                    android:id="@+id/products_recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -203,9 +204,10 @@
                     android:layout_marginTop="8dp"
                     android:text="Menú del Día"
                     android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/category_recyclerView" />
+                    app:layout_constraintTop_toBottomOf="@+id/products_recyclerView" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/popular_recyclerView"

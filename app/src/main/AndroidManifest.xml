@@ -11,19 +11,22 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Base.Theme.FirebaseTutorial"
+        android:theme="@style/Base.Theme.Snack2Go"
         tools:targetApi="31">
         <activity
-            android:name=".activities.ShoppingcartActivity"
+            android:name=".activity.FavoritesActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.NotificacionActivity"
+            android:name=".activity.ShoppingcartActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.OrdersActivity"
+            android:name=".activity.NotificacionActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ProfileActivity"
+            android:name=".activity.OrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ProfileActivity"
             android:exported="false" />
 
         <meta-data
@@ -50,15 +53,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.HomeActivity"
+            android:name=".activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.FirebaseTutorial">
+            android:theme="@style/Theme.Snack2Go">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
