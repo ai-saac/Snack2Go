@@ -8,10 +8,17 @@ public class Producto {
     private float precio;
     private int stock;
     private CategoriaProductos categoria;
+    private int numberInCart;
 
     public Producto(String nombre, String imagen){
         this.nombre = nombre;
         this.imagen = imagen;
+    }
+
+    public Producto(String nombre, String imagen,float precio){
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.precio = precio;
     }
     public Producto(int idProducto, String nombre, String imagen, String descripcion, float precio,
                     int stock, CategoriaProductos categoria) {
@@ -77,5 +84,13 @@ public class Producto {
 
     public void setCategoria(CategoriaProductos categoria){
         this.categoria = categoria;
+    }
+
+    public int getNumberInCart(){
+        return numberInCart;
+    }
+
+    public void setNumberInCart(int numberInCart){
+        this.numberInCart = numberInCart;
     }
 }

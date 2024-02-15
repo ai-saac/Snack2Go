@@ -12,54 +12,53 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.klanify.snack2go.R;
-import com.klanify.snack2go.logic.Producto;
+import com.klanify.snack2go.logic.Plato;
 
 import java.util.ArrayList;
 
-public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHolder>{
-    ArrayList<Producto> productos;
+public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>{
+    ArrayList<Plato> platos;
 
-    public ProductoAdapter(ArrayList<Producto> productos) {
-        this.productos = productos;
+    public MenuAdapter(ArrayList<Plato> platos) {
+        this.platos = platos;
     }
 
     @NonNull
     @Override
-    public ProductoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MenuAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_product,parent,false);
         return new ViewHolder(inflate);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductoAdapter.ViewHolder holder, int position) {
-        holder.productName.setText(productos.get(position).getNombre());
-        holder.precioText.setText(String.valueOf(productos.get(position).getPrecio()));
+    public void onBindViewHolder(@NonNull MenuAdapter.ViewHolder holder, int position) {
+        holder.titleText.setText(platos.get(position).getNombre());
+        holder.precioText.setText(String.valueOf(platos.get(position).getPrecio()));
 
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(productos.get(position).getImagen(),"drawable",holder.itemView.getContext().getPackageName());
+        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(platos.get(position).getImagen(),"drawable",holder.itemView.getContext().getPackageName());
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
-                .into(holder.productImage);
+                .into(holder.menuImage);
 
     }
 
     @Override
     public int getItemCount() {
-        return productos.size();
+        return platos.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView productName,precioText;
-        ImageView productImage;
+        TextView titleText, precioText;
+        ImageView menuImage;
         ConstraintLayout mainLayout;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            productName = itemView.findViewById(R.id.titleText);
+            titleText = itemView.findViewById(R.id.titleText);
             precioText = itemView.findViewById(R.id.precioText);
-            productImage = itemView.findViewById(R.id.productImage);
+            menuImage = itemView.findViewById(R.id.productImage);
             mainLayout = itemView.findViewById(R.id.mainLayout);
-
         }
     }
 }

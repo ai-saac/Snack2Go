@@ -14,7 +14,6 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="50dp"
         android:background="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +23,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="90sp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/actionText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/username"
-                    app:srcCompat="@mipmap/account"/>
+                    app:srcCompat="@mipmap/account" />
 
                 <EditText
                     android:id="@+id/searchText"
@@ -109,7 +109,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="150sp"
+                    android:layout_height="130sp"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="32dp"
@@ -134,7 +134,7 @@
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
                         android:text="Nueva"
                         android:textColor="@color/banner_color"
@@ -162,10 +162,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="@color/buttonText"
                         android:text="Ordena Ya"
                         android:textColor="@color/banner_buttonText"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/textView6"
                         app:layout_constraintStart_toStartOf="@+id/textView6"
                         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -178,26 +180,27 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="18sp"
-                    android:text="Productos"
+                    android:text="Categorías"
                     android:textColor="@color/secondary_color"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/products_recyclerView"
+                    app:layout_constraintBottom_toTopOf="@+id/categories_recyclerView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/products_recyclerView"
+                    android:id="@+id/categories_recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/popularText"
+                    android:paddingLeft="22sp"
+                    android:paddingRight="22sp"
+                    app:layout_constraintBottom_toTopOf="@+id/menuText"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/categoryText" />
 
                 <TextView
-                    android:id="@+id/popularText"
+                    android:id="@+id/menuText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -207,17 +210,42 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/products_recyclerView" />
+                    app:layout_constraintTop_toBottomOf="@+id/categories_recyclerView" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/popular_recyclerView"
+                    android:id="@+id/menu_recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                    android:paddingStart="22sp"
+                    android:paddingEnd="22sp"
+                    app:layout_constraintBottom_toTopOf="@+id/productsText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/popularText"
+                    app:layout_constraintTop_toBottomOf="@+id/menuText"
                     app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/productsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/menu_recyclerView"
+                    android:text="Productos" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/product_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="22sp"
+                    android:paddingEnd="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/productsText" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -242,7 +270,9 @@
             android:elevation="3dp"
             android:src="@mipmap/shopping_cart"
             app:backgroundTint="@color/primary_color"
-            android:onClick="onShoppingcartButtonClick">
+            android:onClick="onShoppingcartButtonClick"
+            app:maxImageSize="30sp"
+            app:tint="@color/white">
 
         </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
@@ -259,8 +289,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="3sp">
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/home_button"
@@ -316,8 +345,8 @@
                 </LinearLayout>
 
                 <Space
-                    android:layout_width="50sp"
-                    android:layout_height="40sp" />
+                    android:layout_width="80sp"
+                    android:layout_height="match_parent" />
 
                 <LinearLayout
                     android:id="@+id/orders_button"
@@ -325,8 +354,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:onClick="onOrdersButtonClick">
+                    android:onClick="onOrdersButtonClick"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/ordersImage"
@@ -352,8 +381,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:onClick="onNotificacionButtonClick">
+                    android:onClick="onNotificacionButtonClick"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/notificacionImage"
