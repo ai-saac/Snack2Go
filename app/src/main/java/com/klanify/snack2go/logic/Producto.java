@@ -10,6 +10,10 @@ public class Producto {
     private CategoriaProductos categoria;
     private int numberInCart;
 
+    public Producto()
+    {
+
+    }
     public Producto(String nombre, String imagen){
         this.nombre = nombre;
         this.imagen = imagen;

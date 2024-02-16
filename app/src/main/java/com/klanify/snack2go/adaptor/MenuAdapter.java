@@ -35,7 +35,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>{
         holder.titleText.setText(platos.get(position).getNombre());
         holder.precioText.setText(String.valueOf(platos.get(position).getPrecio()));
 
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(platos.get(position).getImagen(),"drawable",holder.itemView.getContext().getPackageName());
+        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(platos.get(position).getImagen(),"mipmap",holder.itemView.getContext().getPackageName());
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.menuImage);
