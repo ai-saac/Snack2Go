@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
@@ -39,24 +40,27 @@ class ProfileActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(this, LoginActivity::class.java))
         }
-    }
+        findViewById<LinearLayout>(R.id.home_button).setOnClickListener {
+            val homeIntent = Intent(this, HomeActivity::class.java)
+            homeIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+            startActivity(homeIntent)
+        }
 
-    fun onHomeButtonClick(view: View) {
-        val homeIntent = Intent(this, HomeActivity::class.java)
-        homeIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-        startActivity(homeIntent)
-    }
+        findViewById<LinearLayout>(R.id.orders_button).setOnClickListener {
+            val ordersIntent = Intent(this, OrdersActivity::class.java)
+            ordersIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+            startActivity(ordersIntent)
+        }
 
-    fun onNotificacionButtonClick(view: View) {
-        val notificacionIntent = Intent(this, NotificacionActivity::class.java)
-        notificacionIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-        startActivity(notificacionIntent)
-    }
+        findViewById<LinearLayout>(R.id.notificacion_button).setOnClickListener{
+            val notificacionIntent = Intent(this, NotificationActivity::class.java)
+            notificacionIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+            startActivity(notificacionIntent)
+        }
 
-    fun onOrdersButtonClick(view: View) {
-        val ordersIntent = Intent(this, OrdersActivity::class.java)
-        ordersIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-        startActivity(ordersIntent)
+        findViewById<ImageView>(R.id.backImageProfile).setOnClickListener {
+            onBackPressed()
+        }
     }
 
     fun onShoppingcartButtonClick(view: View) {
@@ -64,4 +68,5 @@ class ProfileActivity : AppCompatActivity() {
         shoppingcartIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
         startActivity(shoppingcartIntent)
     }
+
 }

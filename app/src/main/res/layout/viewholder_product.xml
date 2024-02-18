@@ -25,8 +25,8 @@
 
     <ImageView
         android:id="@+id/productImage"
-        android:layout_width="80sp"
-        android:layout_height="80sp"
+        android:layout_width="90sp"
+        android:layout_height="85sp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,10 +35,11 @@
         app:srcCompat="@drawable/pop_1" />
 
     <TextView
-        android:id="@+id/precioText"
+        android:id="@+id/priceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0.0"
+        android:text="0.00"
+        android:format="%.2f"
         android:textAlignment="textEnd"
         android:textColor="@color/cafe"
         android:textSize="18sp"
@@ -56,8 +57,8 @@
         android:textColor="@color/primary_color"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/precioText"
-        app:layout_constraintEnd_toStartOf="@+id/precioText"
+        app:layout_constraintBottom_toBottomOf="@+id/priceText"
+        app:layout_constraintEnd_toStartOf="@+id/priceText"
         app:layout_constraintTop_toBottomOf="@+id/productImage" />
 
     <Button
@@ -71,6 +72,6 @@
         app:iconTint="@color/background_recycler"
         app:layout_constraintEnd_toEndOf="@+id/productImage"
         app:layout_constraintStart_toStartOf="@+id/productImage"
-        app:layout_constraintTop_toBottomOf="@+id/precioText"
+        app:layout_constraintTop_toBottomOf="@+id/priceText"
         app:tint="@color/background_recycler" />
 </androidx.constraintlayout.widget.ConstraintLayout>

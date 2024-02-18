@@ -1,10 +1,12 @@
 package com.klanify.snack2go.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -31,6 +33,7 @@ import com.klanify.snack2go.R
 class LoginActivity : AppCompatActivity() {
     private val GOOGLESIGNIN = 100
     private val callbackmanager = CallbackManager.Factory.create()
+    private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -191,7 +194,19 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
-        // No hacemos nada aquí para evitar que el usuario regrese a la actividad anterior
+        if (doubleBackToExitPressedOnce) {
+            moveTaskToBack(true)
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Presiona otra vez para minimizar la aplicación", Toast.LENGTH_SHORT).show()
+
+        Handler().postDelayed({
+            doubleBackToExitPressedOnce = false
+        }, 2000) // Tiempo en milisegundos para presionar dos veces
     }
+
 }

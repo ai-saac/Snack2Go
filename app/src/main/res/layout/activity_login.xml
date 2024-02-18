@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="32sp">
+            android:padding="26sp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                 android:text="@string/sign_in"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <Space

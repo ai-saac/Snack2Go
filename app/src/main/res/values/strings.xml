@@ -21,6 +21,12 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="sign_out">Cerrar Sesión</string>
+    <string name="no_shoppingcart">No tienes ningún producto\nen el carrito</string>
+    <string name="no_shoppingcart_description">Cuando no puedas terminar un pedido los productos elegidos se guardarán aquí.</string>
+    <string name="no_orders">Aún no has realizado pedidos</string>
+    <string name="no_orders_description">Busca entre todos nuestro productos y disfruta de tu primer pedido.</string>
+    <string name="no_notifications">No tienes notificaciones</string>
+    <string name="no_notifications_description">Ya viste o eliminaste todas las notificiones. Cuanto Tengas nuevas las verás aquí.</string>
 
     <string name="texto_registro">O registrate con</string>
     <string name="texto_inicio_sesion">O continua con</string>

@@ -15,10 +15,12 @@
     <color name="banner_buttonText">@color/rojo</color>
     <color name="buttonStroke">@color/rojo</color>
     <color name="background_recycler">#FAF8F8</color>
+    <color name="shopping_cart_color">@color/gris_natural</color>
 
     <color name="fb_blue">#1877F2</color>
     <color name="mostaza">#F9B233</color>
     <color name="rojo">#E6332A</color>
+    <color name="rojo_scuro">#D82B2B</color>
     <color name="cafe">#5B250A</color>
     <color name="westar">#e0dcd2</color>
     <color name="sunglow">#E8B34B</color>

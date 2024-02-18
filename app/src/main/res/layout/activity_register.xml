@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/background1"
     android:orientation="vertical"
-    android:padding="32sp"
+    android:padding="28sp"
     tools:context=".activity.RegisterActivity">
 
     <TextView

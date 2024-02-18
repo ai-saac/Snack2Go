@@ -7,10 +7,52 @@
     android:background="@color/background"
     tools:context=".activity.ProfileActivity">
 
+    <LinearLayout
+        android:id="@+id/navlinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backImageProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:paddingTop="14sp"
+            android:paddingRight="14sp"
+            android:paddingBottom="14sp"
+            app:srcCompat="@mipmap/backbutton"
+            app:tint="@color/buttonStroke" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/settingsImageProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="2sp"
+            android:layout_weight="0.2"
+            android:paddingLeft="12sp"
+            android:paddingTop="12sp"
+            android:paddingBottom="12sp"
+            app:srcCompat="@mipmap/settings"
+            app:tint="@color/buttonStroke" />
+    </LinearLayout>
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,27 +64,13 @@
                 android:layout_height="match_parent"
                 android:background="@color/background">
 
-                <TextView
-                    android:id="@+id/profileTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
-                    android:text="Perfil de Usuario"
-                    android:textColor="@color/secondary_color"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/accountImageProfile"
                     android:layout_width="108dp"
                     android:layout_height="116dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="22sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/profileTitle"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@mipmap/account" />
 
                 <LinearLayout
@@ -50,8 +78,8 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="@+id/imageView">
+                    app:layout_constraintStart_toEndOf="@+id/accountImageProfile"
+                    app:layout_constraintTop_toTopOf="@+id/accountImageProfile">
 
                     <TextView
                         android:id="@+id/names"
@@ -75,15 +103,29 @@
 
                 </LinearLayout>
 
+                <ImageView
+                    android:id="@+id/editProfileButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="20dp"
+                    app:tint="@color/buttonStroke"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout"
+                    app:srcCompat="@mipmap/edit" />
+
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="32dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginEnd="75dp"
                     android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/editProfileButton"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView">
+                    app:layout_constraintTop_toBottomOf="@+id/accountImageProfile">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -164,7 +206,7 @@
                             android:id="@+id/walletText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Monedero"
+                            android:text="Billetera"
                             android:textAlignment="center"
                             android:textColor="@color/gris_natural"
                             android:textSize="16sp" />
@@ -201,60 +243,33 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/editProfile_button"
+                    android:id="@+id/profileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Perfil de Usuario"
+                    android:textColor="@color/primary_color"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/personalInfo_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                <TextView
+                    android:id="@+id/personalInfo_button"
                     android:layout_width="match_parent"
                     android:layout_height="55sp"
                     android:layout_marginTop="16dp"
                     android:backgroundTint="@color/background"
-                    android:drawableStart="@mipmap/edit"
+                    android:drawableStart="@mipmap/info"
                     android:drawablePadding="20sp"
                     android:drawableTint="@color/secondary_color"
                     android:elevation="0dp"
                     android:foregroundGravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="32sp"
-                    android:text="Editar Perfil"
-                    android:textAllCaps="false"
-                    android:textColor="@color/secondary_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/favorites_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-                <TextView
-                    android:id="@+id/favorites_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="55sp"
-                    android:backgroundTint="@color/background"
-                    android:drawableStart="@mipmap/favorite"
-                    android:drawablePadding="20sp"
-                    android:drawableTint="@color/secondary_color"
-                    android:gravity="center_vertical"
-                    android:paddingStart="32sp"
-                    android:text="Favoritos"
-                    android:textAllCaps="false"
-                    android:textColor="@color/secondary_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/ordersHistory_button"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editProfile_button"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <TextView
-                    android:id="@+id/ordersHistory_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="55sp"
-                    android:backgroundTint="@color/background"
-                    android:drawableStart="@mipmap/history"
-                    android:drawablePadding="20sp"
-                    android:drawableTint="@color/secondary_color"
-                    android:gravity="center_vertical"
-                    android:paddingStart="32sp"
-                    android:text="Historial de Pedidos"
+                    android:text="Informacion Personal"
                     android:textAllCaps="false"
                     android:textColor="@color/secondary_color"
                     android:textSize="16sp"
@@ -262,8 +277,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/preferences_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/favorites_button"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toBottomOf="@+id/profileTitle" />
 
                 <TextView
                     android:id="@+id/preferences_button"
@@ -275,28 +289,106 @@
                     android:drawableTint="@color/secondary_color"
                     android:gravity="center_vertical"
                     android:paddingStart="32sp"
-                    android:text="Preferencias"
+                    android:text="Preferencias de Comida"
                     android:textAllCaps="false"
                     android:textColor="@color/secondary_color"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/settings_button"
+                    app:layout_constraintBottom_toTopOf="@+id/favorites_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ordersHistory_button"
+                    app:layout_constraintTop_toBottomOf="@+id/personalInfo_button"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/settings_button"
+                    android:id="@+id/favorites_button"
                     android:layout_width="match_parent"
                     android:layout_height="55sp"
                     android:backgroundTint="@color/background"
-                    android:drawableStart="@mipmap/settings"
+                    android:drawableStart="@mipmap/favorite"
                     android:drawablePadding="20sp"
                     android:drawableTint="@color/secondary_color"
                     android:gravity="center_vertical"
                     android:paddingStart="32sp"
-                    android:text="Configuración"
+                    android:text="Mis Favoritos"
+                    android:textAllCaps="false"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/activityTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/preferences_button"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/activityTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Actividad"
+                    android:textColor="@color/primary_color"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/history_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/favorites_button" />
+
+                <TextView
+                    android:id="@+id/history_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/background"
+                    android:drawableStart="@mipmap/history"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/secondary_color"
+                    android:gravity="center_vertical"
+                    android:paddingStart="32sp"
+                    android:text="Historial de Pedidos"
+                    android:textAllCaps="false"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/payment_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activityTitle"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/payment_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    android:backgroundTint="@color/background"
+                    android:drawableStart="@mipmap/card"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/secondary_color"
+                    android:gravity="center_vertical"
+                    android:paddingStart="32sp"
+                    android:text="Pagos y Tarjetas"
+                    android:textAllCaps="false"
+                    android:textColor="@color/secondary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/discount_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/history_button"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/discount_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="55sp"
+                    android:backgroundTint="@color/background"
+                    android:drawableStart="@mipmap/ticket"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/secondary_color"
+                    android:gravity="center_vertical"
+                    android:paddingStart="32sp"
+                    android:text="Cupones de Descuento"
                     android:textAllCaps="false"
                     android:textColor="@color/secondary_color"
                     android:textSize="16sp"
@@ -304,7 +396,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/logout_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/preferences_button"
+                    app:layout_constraintTop_toBottomOf="@+id/payment_button"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -323,7 +415,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/settings_button"
+                    app:layout_constraintTop_toBottomOf="@+id/discount_button"
                     app:layout_constraintVertical_bias="0.0"
                     tools:layout_editor_absoluteX="0dp" />
 
@@ -348,9 +440,9 @@
             android:backgroundTint="@color/primary_color"
             android:contentDescription="TODO"
             android:elevation="3dp"
+            android:onClick="onShoppingcartButtonClick"
             android:src="@mipmap/shopping_cart"
             app:backgroundTint="@color/primary_color"
-            android:onClick="onShoppingcartButtonClick"
             app:maxImageSize="30sp"
             app:tint="@color/white">
 
@@ -359,35 +451,37 @@
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_gravity="bottom"
             android:backgroundTint="@color/gris_claro"
             app:fabCradleMargin="8sp"
-            app:fabCradleRoundedCornerRadius="50sp"
+            app:fabCradleRoundedCornerRadius="55sp"
             app:fabCradleVerticalOffset="6sp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="3sp">
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/home_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="2sp"
                     android:layout_weight="0.2"
+                    android:backgroundTint="#9C27B0"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:onClick="onHomeButtonClick">
+                    android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/homeIcon"
                         android:layout_width="match_parent"
                         android:layout_height="0sp"
                         android:layout_weight="1"
                         app:srcCompat="@mipmap/home" />
 
                     <TextView
+                        android:id="@+id/homeText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Inicio"
@@ -401,6 +495,7 @@
                     android:id="@+id/profile_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="2sp"
                     android:layout_weight="0.2"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -432,10 +527,10 @@
                     android:id="@+id/orders_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="2sp"
                     android:layout_weight="0.2"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:onClick="onOrdersButtonClick">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/ordersImage"
@@ -459,27 +554,26 @@
                     android:id="@+id/notificacion_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.2"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="0.25"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:onClick="onNotificacionButtonClick">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/notificacionImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@mipmap/notificacion" />
+                        app:srcCompat="@mipmap/reminder" />
 
                     <TextView
-                        android:id="@+id/settingsText"
+                        android:id="@+id/notificacionText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mensajes"
+                        android:text="Avisos"
                         android:textAlignment="center"
                         android:textColor="@color/gris_natural"
                         android:textSize="12sp" />
-
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>

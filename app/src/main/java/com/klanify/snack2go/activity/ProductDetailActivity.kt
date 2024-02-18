@@ -1,8 +1,6 @@
 package com.klanify.snack2go.activity
-
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.klanify.snack2go.R
+import com.klanify.snack2go.helper.ManagementCart
 import com.klanify.snack2go.logic.Producto
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -21,12 +20,15 @@ class ProductDetailActivity : AppCompatActivity() {
     private lateinit var quantityText :TextView
     private lateinit var productImage :ImageView
     private lateinit var addToOrderButton :Button
-    private lateinit var productObject : Producto
+    private lateinit var backButton :TextView
+    private lateinit var productObject :Producto
     private var quantity = 1
+    private lateinit var managementCart :ManagementCart
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_productdetail)
+        setContentView(R.layout.activity_product_detail)
+        managementCart = ManagementCart(this)
         setup()
         getBundle()
 
@@ -35,13 +37,14 @@ class ProductDetailActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun getBundle(){
         productObject = intent.getSerializableExtra("object") as Producto
-        val drawableResourceId = this.resources.getIdentifier(productObject.imagen, "drawable", this.packageName)
+        val drawableResourceId = this.resources.getIdentifier(productObject.imagen, "mipmap", this.packageName)
         Glide.with(this)
             .load(drawableResourceId)
             .into(productImage)
         productDName.text = productObject.nombre
         productPrice.text = "${'$'}${' '}${productObject.precio}"
         quantityText.text = quantity.toString()
+        productDescription.text = productObject.descripcion
         plusButton.setOnClickListener{
             quantity = quantity + 1
             quantityText.text = quantity.toString()
@@ -55,8 +58,14 @@ class ProductDetailActivity : AppCompatActivity() {
                 Toast.makeText(this,"Pedido Mínimo 1", Toast.LENGTH_SHORT).show()
             }
         }
+        addToOrderButton.setOnClickListener{
+            productObject.numberInCart = quantity
+            managementCart.insertProduct(productObject)
+            Toast.makeText(this,"Agregado al Pedido", Toast.LENGTH_SHORT).show()
+        }
 
     }
+
     private fun setup(){
         productDName = findViewById(R.id.productNameText)
         plusButton = findViewById(R.id.plusButton)
@@ -67,6 +76,9 @@ class ProductDetailActivity : AppCompatActivity() {
         productImage = findViewById(R.id.productDImage)
         addToOrderButton = findViewById(R.id.addToOrderButton)
 
+        findViewById<ImageView>(R.id.backImagePD).setOnClickListener {
+            onBackPressed()
+        }
 
     }
 

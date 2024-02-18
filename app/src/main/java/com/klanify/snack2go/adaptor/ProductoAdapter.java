@@ -1,8 +1,11 @@
 package com.klanify.snack2go.adaptor;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,10 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.klanify.snack2go.R;
+import com.klanify.snack2go.activity.ProductDetailActivity;
 import com.klanify.snack2go.logic.Producto;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHolder>{
     ArrayList<Producto> productos;
@@ -32,16 +35,24 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductoAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductoAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.productName.setText(productos.get(position).getNombre());
         String price = String.valueOf(productos.get(position).getPrecio());
-        String formattedPrice = String.format(Locale.getDefault(), "%.2f", price);
-        holder.precioText.setText(formattedPrice);
+        holder.priceText.setText(price);
 
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(productos.get(position).getImagen(),"mipmap",holder.itemView.getContext().getPackageName());
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.productImage);
+
+        holder.add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), ProductDetailActivity.class);
+                intent.putExtra("object",productos.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
 
     }
 
@@ -51,16 +62,18 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView productName,precioText;
+        TextView productName,priceText;
         ImageView productImage;
+        Button add_button;
         ConstraintLayout mainLayout;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             productName = itemView.findViewById(R.id.titleText);
-            precioText = itemView.findViewById(R.id.precioText);
+            priceText = itemView.findViewById(R.id.priceText);
             productImage = itemView.findViewById(R.id.productImage);
+            add_button = itemView.findViewById(R.id.add_button);
             mainLayout = itemView.findViewById(R.id.mainLayout);
 
         }

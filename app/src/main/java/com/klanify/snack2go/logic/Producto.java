@@ -1,6 +1,8 @@
 package com.klanify.snack2go.logic;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable {
     private int idProducto;
     private String nombre;
     private String imagen;
@@ -19,9 +21,16 @@ public class Producto {
         this.imagen = imagen;
     }
 
-    public Producto(String nombre, String imagen,float precio){
+    public Producto(String nombre, String imagen, float precio){
         this.nombre = nombre;
         this.imagen = imagen;
+        this.precio = precio;
+    }
+
+    public Producto(String nombre, String imagen, String descripcion, float precio){
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.descripcion = descripcion;
         this.precio = precio;
     }
     public Producto(int idProducto, String nombre, String imagen, String descripcion, float precio,
