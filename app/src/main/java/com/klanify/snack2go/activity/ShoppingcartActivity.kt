@@ -3,12 +3,12 @@ package com.klanify.snack2go.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.klanify.snack2go.R
@@ -52,6 +52,12 @@ class ShoppingcartActivity : AppCompatActivity() {
             totalPriceText = findViewById(R.id.totalPriceText)
             scrollViewShoppingCart = findViewById(R.id.scrollViewShoppingCart)
         }
+    }
+
+    private fun initList(){
+        val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewCartList = findViewById<RecyclerView>(R.id.cartList_RecyclerView)
+        recyclerViewCartList.setLayoutManager(linearLayoutManager)
     }
 
     private fun setup(email: String, provider: String){

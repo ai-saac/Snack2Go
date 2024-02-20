@@ -1,19 +1,24 @@
 package com.klanify.snack2go.logic;
 
 import java.util.Date;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Pedido {
     private int IDPedido;
     private Usuario usuario;
     private Date fecha;
-    private List<Producto> detallesPedido;
+    private ArrayList<Producto> productos;
+    private float subtotal;
+    private float iva;
+    private float total;
 
-    public Pedido(int IDPedido, Usuario usuario, Date fecha, List<Producto> detallesPedido) {
+    public Pedido(){}
+
+    public Pedido(int IDPedido, Usuario usuario, Date fecha, ArrayList<Producto> productos) {
         this.IDPedido = IDPedido;
         this.usuario = usuario;
         this.fecha = fecha;
-        this.detallesPedido = detallesPedido;
+        this.productos = productos;
     }
 
     public int getIDPedido() {
@@ -40,12 +45,35 @@ public class Pedido {
         this.fecha = fecha;
     }
 
-    public List<Producto> getDetallesPedido() {
-        return detallesPedido;
+    public ArrayList<Producto> getDetallesPedido() {
+        return productos;
     }
 
-    public void setDetallesPedido(List<Producto> detallesPedido) {
-        this.detallesPedido = detallesPedido;
+    public void setDetallesPedido(ArrayList<Producto> productos) {
+        this.productos = productos;
     }
 
+    public float getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(float subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public float getIva() {
+        return iva;
+    }
+
+    public void setIva(float iva) {
+        this.iva = iva;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
 }

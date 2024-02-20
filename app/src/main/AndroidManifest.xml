@@ -14,10 +14,10 @@
         android:theme="@style/Base.Theme.Snack2Go"
         tools:targetApi="31">
         <activity
-            android:name=".activity.settingsActivity"
+            android:name=".activity.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.searchProductsActivity"
+            android:name=".activity.SearchProductsActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ProductDetailActivity"

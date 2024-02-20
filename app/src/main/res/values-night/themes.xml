@@ -8,7 +8,7 @@
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
     </style>
     <style name="Theme.Snack2Go" parent="Base.Theme.Snack2Go">
-        <item name="android:windowBackground">@drawable/splashscreennight</item>>
+        <item name="android:windowBackground">@drawable/splashscreen_night</item>>
     </style>
     <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu">
         <!-- Cambia el color de fondo del menú emergente -->

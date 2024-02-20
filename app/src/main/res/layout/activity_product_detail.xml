@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32sp"
                 android:layout_marginRight="32sp"
-                android:background="@drawable/cat_background"
+                android:background="@drawable/category_background"
                 android:orientation="vertical">
 
                 <TextView

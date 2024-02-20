@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8sp"
-    android:background="@drawable/cat_background"
+    android:background="@drawable/category_background"
     android:elevation="3dp">
 
     <TextView
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleText"
-        app:srcCompat="@drawable/pop_1" />
+        app:srcCompat="@mipmap/i20" />
 
     <TextView
         android:id="@+id/priceText"
