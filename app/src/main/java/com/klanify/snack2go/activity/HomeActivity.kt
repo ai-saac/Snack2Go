@@ -38,6 +38,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var recyclerViewCategoryList: RecyclerView
     private lateinit var recyclerViewProductsList: RecyclerView
     private lateinit var recyclerViewMenuList: RecyclerView
+    private lateinit var productos: ArrayList<Producto>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,13 +64,14 @@ class HomeActivity : AppCompatActivity() {
         recyclerViewProducts()
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
     private fun setup(email: String, provider: String){
         title = "Home"
         findViewById<LinearLayout>(R.id.profile_button).setOnClickListener{
             showProfile(email,provider)
         }
-
-        showPopupMenu(provider)
 
         findViewById<LinearLayout>(R.id.orders_button).setOnClickListener {
             val ordersIntent = Intent(this, OrdersActivity::class.java)
@@ -86,6 +88,9 @@ class HomeActivity : AppCompatActivity() {
         findViewById<FloatingActionButton>(R.id.cart_button).setOnClickListener {
             showShoppingcart(email, provider)
         }
+
+        showPopupMenu(provider)
+        initProductsList();
     }
     @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
@@ -98,6 +103,7 @@ class HomeActivity : AppCompatActivity() {
         }
         profileIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
         startActivity(profileIntent)
+        finish()
     }
 
     private fun showShoppingcart(email:String, provider: String) {
@@ -204,8 +210,12 @@ class HomeActivity : AppCompatActivity() {
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerViewProductsList = findViewById<RecyclerView>(R.id.product_recyclerView)
         recyclerViewProductsList.setLayoutManager(linearLayoutManager)
+        adapterProducts = ProductoAdapter(productos)
+        recyclerViewProductsList.setAdapter(adapterProducts)
+    }
 
-        val productos = ArrayList<Producto>()
+    fun initProductsList(){
+        productos = ArrayList<Producto>()
         productos.add(Producto("Coca Cola\nPersonal", "i13","Agua carbonatada, jarabe de alta fructosa, colorante caramelo, ácido fosfórico, extractos naturales, cafeína.", 0.35F))
         productos.add(Producto("Hamburguesa\nSencilla", "i14", "Pan, carne de res molida, ketchup, mostaza, mayonesa, tomate, lechuga, cebolla, pepinillos, queso.", 0.75F))
         productos.add(Producto("Empanada\nde Carne", "i10", "Masa: harina, agua, sal, grasa (manteca, margarina o aceite). Relleno: carne molida, cebolla, condimentos (sal, pimienta, pimentón, etc.), masa de empanada rellena y cocida al horno o frita.", 0.40F))
@@ -219,26 +229,23 @@ class HomeActivity : AppCompatActivity() {
         productos.add(Producto("Choripan\n", "i29", "Pan, chorizo ecuatoriano, curtido de cebolla, tomate, ají casero.", 0.75F))
         productos.add(Producto("Churros\n", "i28", "Harina, agua, huevos, sal, aceite vegetal para freír, azúcar glass para espolvorear.", 0.75F))
         productos.add(Plato("Arroz\nMenestra y Carne", "i3", "Arroz, menestra (arvejas, zanahoria, choclo), carne (pollo, res o cerdo), cebolla, ajo, culantro, salsa de tomate, sal, pimienta, aceite vegetal.",2.00F))
-        productos.add(Producto("Agua\nmedio litro", "i24", "Una descripción hasta las mismas mismas", 0.75F))
+        productos.add(Producto("Agua\nmedio litro", "i24", "Agua de mesa procesada de alta calidad", 0.75F))
         productos.add(Plato("Milanesa\nde Pollo", "i8", "Pechuga de pollo, huevo, harina, pan rallado, sal, pimienta, aceite para freír.",3.00F))
         productos.add(Producto("Hot Dogs\n", "i22", "Pan de hot dog, salchichas, kétchup, mostaza, chucrut, cebolla curtida.", 0.75F))
-        productos.add(Producto("Empanada Ranchera\n", "i18", "Una descripción hasta las mismas mismas", 0.75F))
-        productos.add(Producto("Chifles\n", "i27", "Una descripción hasta las mismas mismas", 0.75F))
+        productos.add(Producto("Empanada Ranchera\n", "i18", "Masa: harina, agua, sal, grasa (manteca o aceite vegetal). Relleno: carne molida, papas, cebolla, ajo, ají, comino, masa de empanada rellena y cocida al horno o frita.", 0.75F))
+        productos.add(Producto("Chifles\n", "i27", "Plátano verde, aceite vegetal para freír, sal.", 0.75F))
         productos.add(Producto("Pepsi\nPersonal", "i23", "Agua carbonatada, jarabe de alta fructosa, colorante caramelo, ácido fosfórico, cafeína, aromatizantes.", 0.75F))
         productos.add(Plato("Seco\nde Pollo", "i2","Pollo, arroz, cebolla, tomate, ajo, culantro, salsa de ají amarillo, sal, pimienta, aceite.", 2.75F))
         productos.add(Plato("Estofado\nde Carne", "Carne (res, cerdo o pollo), papas, zanahorias, arvejas, tomates, cebolla, ajo, laurel, vino tinto, caldo o agua, sal, pimienta negra.", "i4", 2.25F))
-        productos.add(Producto("Empanada\nde Pizza", "i16", "Una descripción hasta las mismas mismas", 0.6F))
-        productos.add(Plato("Enrollado\nde Atún", "i5", "tún enlatado, mayonesa, lechuga, tomate, cebolla, tortilla de trigo.",2.00F))
+        productos.add(Producto("Empanada\nde Pizza", "i16", "Masa: harina, agua, sal, grasa (manteca o aceite vegetal). Relleno: salsa de tomate, queso mozzarella, pepperoni, champiñones, masa de empanada rellena y cocida al horno o frita", 0.6F))
+        productos.add(Plato("Enrollado\nde Atún", "i5", "Atún enlatado, mayonesa, lechuga, tomate, cebolla, tortilla de trigo.",2.00F))
         productos.add(Plato("Chaulafán\n", "i6","Arroz, cebolla, ajo, pollo, carne molida de res, brócoli, coliflor, zanahoria, salsa de soya, sal, pimienta.", 1.5F))
-        productos.add(Plato("Pizza\nPeperoni", "i20", 1.5F))
+        productos.add(Plato("Pizza\nPeperoni", "i20","Masa de pizza, salsa de tomate, pepperoni, queso mozzarella, orégano.", 1.5F))
         productos.add(Plato("Patacones\ncon Queso", "i7", "Plátanos verdes, aceite para freír, queso blanco salado (por ejemplo queso costeño), cilantro picado, cebolla morada, limón.",1.00F))
         productos.add(Plato("Estofado\nde Pollo", "i9", "Pollo en trozos, papas, zanahorias, cebolla, ajo, tomates, perejil, laurel, vino blanco, caldo de pollo, sal, pimienta.",2.50F))
         productos.add(Plato("Encebollado\n", "i11", "Pescado (albacora o picudo), cebolla, ajo, tomate, cilantro, naranjilla, sal y pimienta.",2.50F))
-        productos.add(Plato("Pizza\nItaliana", "i25", 1.5F))
+        productos.add(Plato("Pizza\nItaliana", "i25", "Masa de pizza, salsa de tomate, queso mozzarella, jamón, champiñones, aceitunas negras, albahaca fresca, orégano.",1.5F))
 
-        adapterProducts = ProductoAdapter(productos)
-        recyclerViewProductsList.setAdapter(adapterProducts)
     }
-
 
 }

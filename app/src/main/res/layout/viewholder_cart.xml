@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="16sp"
-    android:layout_marginTop="16sp"
-    android:layout_marginEnd="16sp"
-    android:layout_marginBottom="16sp"
+    android:layout_marginStart="2sp"
+    android:layout_marginEnd="2sp"
+    android:layout_marginBottom="8sp"
     android:background="@drawable/category_background"
     android:elevation="3sp">
 
@@ -18,9 +17,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@tools:sample/avatars"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/minusBtnCart"
+        app:layout_constraintEnd_toStartOf="@+id/minusCart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/i20" />
@@ -29,52 +27,51 @@
         android:id="@+id/itemProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4sp"
-        android:layout_marginTop="16sp"
+        android:layout_marginStart="6sp"
+        android:layout_marginTop="12sp"
         android:text="Title"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/itemProductImage"
         app:layout_constraintTop_toTopOf="@+id/itemProductImage" />
 
-    <ImageView
-        android:id="@+id/minusBtnCart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="8dp"
-        android:src="@tools:sample/avatars"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="30sp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/itemProductImage"
-        app:layout_constraintEnd_toStartOf="@id/numberItemText"
-        app:layout_constraintStart_toEndOf="@+id/itemProductImage"
-        tools:srcCompat="@mipmap/minus" />
+        app:layout_constraintStart_toStartOf="@+id/itemProductName">
 
-    <TextView
-        android:id="@+id/numberItemText"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="8sp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:text="1"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/minusBtnCart"
-        app:layout_constraintEnd_toStartOf="@+id/plusBtnCart"
-        app:layout_constraintStart_toEndOf="@+id/minusBtnCart"
-        app:layout_constraintTop_toTopOf="@+id/minusBtnCart" />
+        <ImageView
+            android:id="@+id/minusBtnCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/minus" />
 
-    <ImageView
-        android:id="@+id/plusBtnCart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:src="@tools:sample/avatars"
-        app:layout_constraintBottom_toBottomOf="@+id/minusBtnCart"
-        app:layout_constraintStart_toEndOf="@+id/numberItemText"
-        app:layout_constraintTop_toTopOf="@+id/minusBtnCart"
-        app:srcCompat="@mipmap/plus" />
+        <TextView
+            android:id="@+id/numberItemText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="8sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/plusBtnCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="visible"
+            app:srcCompat="@mipmap/plus" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/itemPriceText"
@@ -104,7 +101,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/plusBtnCart"
         app:layout_constraintEnd_toEndOf="@+id/itemPriceText"

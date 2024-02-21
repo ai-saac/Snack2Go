@@ -1,7 +1,7 @@
 package com.klanify.snack2go.adaptor;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.klanify.snack2go.R;
-import com.klanify.snack2go.activity.ProductDetailActivity;
 import com.klanify.snack2go.helper.ManagementCart;
 import com.klanify.snack2go.logic.Producto;
 import com.klanify.snack2go.interfaces.ChangeNumberItemsListener;
@@ -22,20 +21,23 @@ import com.klanify.snack2go.interfaces.ChangeNumberItemsListener;
 import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
+    /**
+     *
+     */
     private ArrayList<Producto> productos;
     private ManagementCart managementCart;
     private ChangeNumberItemsListener changeNumberItemsListener;
 
-    public CartAdapter(ArrayList<Producto> productos, ManagementCart managementCart, ChangeNumberItemsListener changeNumberItemsListener) {
+    public CartAdapter(ArrayList<Producto> productos, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
         this.productos = productos;
-        this.managementCart = managementCart;
+        this.managementCart = new ManagementCart(context);
         this.changeNumberItemsListener = changeNumberItemsListener;
     }
 
     @NonNull
     @Override
     public CartAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_product,parent,false);
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart,parent,false);
         return new ViewHolder(inflate);
     }
 
@@ -44,7 +46,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
         holder.itemProductName.setText(productos.get(position).getNombre());
         String price = String.valueOf(productos.get(position).getPrecio());
         holder.itemPriceText.setText(price);
-        holder.number.setText(productos.get(position).getNumberInCart());
+        holder.number.setText(String.valueOf(productos.get(position).getNumberInCart()));
         holder.itemTotalPriceText.setText(String.valueOf(productos.get(position).getPrecio() * productos.get(position).getNumberInCart()));
 
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(productos.get(position).getImagen(),"mipmap",holder.itemView.getContext().getPackageName());
@@ -55,14 +57,26 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
         holder.minusitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                managementCart.minusNumberProduct(productos, position, new ChangeNumberItemsListener() {
+                    @Override
+                    public void changed() {
+                        notifyDataSetChanged();
+                        changeNumberItemsListener.changed();
+                    }
+                });
             }
         });
 
         holder.plusitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                managementCart.plusNumberProduct(productos, position, new ChangeNumberItemsListener() {
+                    @Override
+                    public void changed() {
+                        notifyDataSetChanged();
+                        changeNumberItemsListener.changed();
+                    }
+                });
             }
         });
     }

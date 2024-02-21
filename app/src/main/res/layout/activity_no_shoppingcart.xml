@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/backImageNoShoppingcart"
+            android:id="@+id/backImageShoppingcart"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
@@ -34,7 +34,7 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:id="@+id/settingsImageNoShoppingcart"
+            android:id="@+id/settingsImageShoppingcart"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="2sp"
@@ -79,7 +79,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/no_shoppingcart"
                 android:textAlignment="center"
-                android:textColor="@color/primary_color"
+                android:textColor="@color/buttonStroke"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

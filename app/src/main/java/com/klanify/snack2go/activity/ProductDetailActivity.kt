@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.klanify.snack2go.R
 import com.klanify.snack2go.helper.ManagementCart
 import com.klanify.snack2go.logic.Producto
+import com.klanify.snack2go.activity.ShoppingcartActivity
 
 class ProductDetailActivity : AppCompatActivity() {
     private lateinit var productDName:TextView
@@ -20,7 +21,6 @@ class ProductDetailActivity : AppCompatActivity() {
     private lateinit var quantityText :TextView
     private lateinit var productImage :ImageView
     private lateinit var addToOrderButton :Button
-    private lateinit var backButton :TextView
     private lateinit var productObject :Producto
     private var quantity = 1
     private lateinit var managementCart :ManagementCart
@@ -61,7 +61,8 @@ class ProductDetailActivity : AppCompatActivity() {
         addToOrderButton.setOnClickListener{
             productObject.numberInCart = quantity
             managementCart.insertProduct(productObject)
-            Toast.makeText(this,"Agregado al Pedido", Toast.LENGTH_SHORT).show()
+            ShoppingcartActivity.emptyCart = false
+            onBackPressed()
         }
 
     }

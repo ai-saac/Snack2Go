@@ -39,7 +39,7 @@ class NotificationActivity : AppCompatActivity() {
             startActivity(ordersIntent)
         }
 
-        findViewById<ImageView>(R.id.backImageNoShoppingcart).setOnClickListener {
+        findViewById<ImageView>(R.id.backImageShoppingcart).setOnClickListener {
             onBackPressed()
         }
     }

@@ -4,7 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".activity.ShoppingcartActivity">
+
+    <LinearLayout
+        android:id="@+id/noProductsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="55dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/noShoppingCartImage"
+            android:layout_width="match_parent"
+            android:layout_height="300sp"
+            app:srcCompat="@mipmap/no_shoppingcart" />
+
+        <TextView
+            android:id="@+id/noShoppingcartText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:text="@string/no_shoppingcart"
+            android:textAlignment="center"
+            android:textColor="@color/buttonStroke"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/noShoppingcartDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:paddingLeft="55sp"
+            android:paddingRight="55sp"
+            android:text="@string/no_shoppingcart_description"
+            android:textAlignment="center"
+            android:textColor="@color/gris_natural"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/navlinearLayout"
@@ -17,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/backImageNoShoppingcart"
+            android:id="@+id/backImageShoppingcart"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
@@ -33,7 +81,7 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:id="@+id/settingsImageNoShoppingcart"
+            android:id="@+id/settingsImageShoppingcart"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="2sp"
@@ -65,9 +113,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8sp"
+                android:layout_marginBottom="8sp"
                 android:text="Mi Pedido"
                 android:textAlignment="center"
-                android:textColor="@color/primary_color"
+                android:textColor="@color/buttonStroke"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -77,8 +126,8 @@
                 android:id="@+id/cartList_RecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16sp"
-                android:layout_marginRight="16sp" />
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="12sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="$ 8.30"
+                    android:text="$ 0.00"
                     android:textAlignment="textEnd"
                     android:textColor="@color/secondary_color"
                     android:textSize="18sp" />
@@ -134,7 +183,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="$ 8.30"
+                    android:text="$ 0.00"
                     android:textAlignment="textEnd"
                     android:textColor="@color/secondary_color"
                     android:textSize="18sp" />
@@ -164,7 +213,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="$ 8.30"
+                    android:text="$ 0.00"
                     android:textAlignment="textEnd"
                     android:textColor="@color/primary_color"
                     android:textSize="24sp"
@@ -187,6 +236,7 @@
     </ScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="100sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -202,7 +252,6 @@
             android:backgroundTint="@color/primary_color"
             android:contentDescription="TODO"
             android:elevation="3dp"
-            android:onClick="onShoppingcartButtonClick"
             android:src="@mipmap/shopping_cart"
             app:backgroundTint="@color/primary_color"
             app:maxImageSize="30sp"
