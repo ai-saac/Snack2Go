@@ -16,15 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.klanify.snack2go.R;
 import com.klanify.snack2go.activity.ProductDetailActivity;
-import com.klanify.snack2go.logic.Plato;
+import com.klanify.snack2go.logic.Dish;
 
 import java.util.ArrayList;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>{
-    ArrayList<Plato> platos;
+    ArrayList<Dish> dishes;
 
-    public MenuAdapter(ArrayList<Plato> platos) {
-        this.platos = platos;
+    public MenuAdapter(ArrayList<Dish> dishes) {
+        this.dishes = dishes;
     }
 
     @NonNull
@@ -36,10 +36,10 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MenuAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.titleText.setText(platos.get(position).getNombre());
-        holder.priceText.setText(String.valueOf(platos.get(position).getPrecio()));
+        holder.titleText.setText(dishes.get(position).getNombre());
+        holder.priceText.setText(String.valueOf(dishes.get(position).getPrecio()));
 
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(platos.get(position).getImagen(),"mipmap",holder.itemView.getContext().getPackageName());
+        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(dishes.get(position).getImagen(),"mipmap",holder.itemView.getContext().getPackageName());
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.menuImage);
@@ -48,7 +48,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), ProductDetailActivity.class);
-                intent.putExtra("object",platos.get(position));
+                intent.putExtra("object", dishes.get(position));
                 holder.itemView.getContext().startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return platos.size();
+        return dishes.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

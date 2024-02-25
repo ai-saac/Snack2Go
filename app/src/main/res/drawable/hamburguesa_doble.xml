@@ -3,6 +3,6 @@
     <bitmap
         android:src="@mipmap/hamburguesa_doble"
         android:gravity="center_vertical|start"
-        android:width="50sp"
-        android:height="50sp" />
+        android:width="52sp"
+        android:height="52sp" />
 </inset>

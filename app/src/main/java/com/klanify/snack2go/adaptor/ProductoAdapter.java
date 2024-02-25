@@ -16,15 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.klanify.snack2go.R;
 import com.klanify.snack2go.activity.ProductDetailActivity;
-import com.klanify.snack2go.logic.Producto;
+import com.klanify.snack2go.logic.Product;
 
 import java.util.ArrayList;
 
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHolder>{
-    ArrayList<Producto> productos;
+    ArrayList<Product> products;
 
-    public ProductoAdapter(ArrayList<Producto> productos) {
-        this.productos = productos;
+    public ProductoAdapter(ArrayList<Product> products) {
+        this.products = products;
     }
 
     @NonNull
@@ -36,11 +36,11 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ProductoAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.productName.setText(productos.get(position).getNombre());
-        String price = String.valueOf(productos.get(position).getPrecio());
+        holder.productName.setText(products.get(position).getNombre());
+        String price = String.valueOf(products.get(position).getPrecio());
         holder.priceText.setText(price);
 
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(productos.get(position).getImagen(),"mipmap",holder.itemView.getContext().getPackageName());
+        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(products.get(position).getImagen(),"mipmap",holder.itemView.getContext().getPackageName());
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.productImage);
@@ -49,7 +49,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), ProductDetailActivity.class);
-                intent.putExtra("object",productos.get(position));
+                intent.putExtra("object", products.get(position));
                 holder.itemView.getContext().startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return productos.size();
+        return products.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

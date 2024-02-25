@@ -5,16 +5,16 @@ import java.util.ArrayList;
 public class Menu {
     private String id;
     private String fecha;
-    private ArrayList<Plato> platos;
+    private ArrayList<Dish> dishes;
 
     public Menu(){
 
     }
 
-    public Menu(String id, String fecha, ArrayList<Plato> platos) {
+    public Menu(String id, String fecha, ArrayList<Dish> dishes) {
         this.id = id;
         this.fecha = fecha;
-        this.platos = platos;
+        this.dishes = dishes;
     }
 
     public String getId() {
@@ -33,11 +33,11 @@ public class Menu {
         this.fecha = fecha;
     }
 
-    public ArrayList<Plato> getPlatos() {
-        return platos;
+    public ArrayList<Dish> getPlatos() {
+        return dishes;
     }
 
-    public void setPlatos(ArrayList<Plato> platos) {
-        this.platos = platos;
+    public void setPlatos(ArrayList<Dish> dishes) {
+        this.dishes = dishes;
     }
 }

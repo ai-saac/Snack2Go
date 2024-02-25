@@ -32,7 +32,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 
-import com.klanify.snack2go.logic.Producto;
+import com.klanify.snack2go.logic.Product;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -327,14 +327,14 @@ public class TinyDB {
     }
 
 
-    public ArrayList<Producto> getListObject(String key){
+    public ArrayList<Product> getListObject(String key){
         Gson gson = new Gson();
 
         ArrayList<String> objStrings = getListString(key);
-        ArrayList<Producto> playerList =  new ArrayList<Producto>();
+        ArrayList<Product> playerList =  new ArrayList<Product>();
 
         for(String jObjString : objStrings){
-            Producto player  = gson.fromJson(jObjString,  Producto.class);
+            Product player  = gson.fromJson(jObjString,  Product.class);
             playerList.add(player);
         }
         return playerList;
@@ -489,11 +489,11 @@ public class TinyDB {
         putString(key, gson.toJson(obj));
     }
 
-    public void putListObject(String key, ArrayList<Producto> playerList){
+    public void putListObject(String key, ArrayList<Product> playerList){
         checkForNullKey(key);
         Gson gson = new Gson();
         ArrayList<String> objStrings = new ArrayList<String>();
-        for(Producto player: playerList){
+        for(Product player: playerList){
             objStrings.add(gson.toJson(player));
         }
         putListString(key, objStrings);

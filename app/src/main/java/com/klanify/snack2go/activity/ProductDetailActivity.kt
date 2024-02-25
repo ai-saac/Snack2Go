@@ -9,8 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.klanify.snack2go.R
 import com.klanify.snack2go.helper.ManagementCart
-import com.klanify.snack2go.logic.Producto
-import com.klanify.snack2go.activity.ShoppingcartActivity
+import com.klanify.snack2go.logic.Product
 
 class ProductDetailActivity : AppCompatActivity() {
     private lateinit var productDName:TextView
@@ -21,7 +20,7 @@ class ProductDetailActivity : AppCompatActivity() {
     private lateinit var quantityText :TextView
     private lateinit var productImage :ImageView
     private lateinit var addToOrderButton :Button
-    private lateinit var productObject :Producto
+    private lateinit var productObject : Product
     private var quantity = 1
     private lateinit var managementCart :ManagementCart
 
@@ -36,7 +35,7 @@ class ProductDetailActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun getBundle(){
-        productObject = intent.getSerializableExtra("object") as Producto
+        productObject = intent.getSerializableExtra("object") as Product
         val drawableResourceId = this.resources.getIdentifier(productObject.imagen, "mipmap", this.packageName)
         Glide.with(this)
             .load(drawableResourceId)
@@ -77,8 +76,9 @@ class ProductDetailActivity : AppCompatActivity() {
         productImage = findViewById(R.id.productDImage)
         addToOrderButton = findViewById(R.id.addToOrderButton)
 
-        findViewById<ImageView>(R.id.backImagePD).setOnClickListener {
+        findViewById<ImageView>(R.id.closeImagePD).setOnClickListener {
             onBackPressed()
+            finish()
         }
 
     }

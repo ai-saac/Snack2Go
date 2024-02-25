@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -29,6 +30,7 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.klanify.snack2go.R
+import java.net.URI
 
 class LoginActivity : AppCompatActivity() {
     private val GOOGLESIGNIN = 100
@@ -36,11 +38,11 @@ class LoginActivity : AppCompatActivity() {
     private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        Thread.sleep(2000)
+        //Thread.sleep(2000)
         setTheme(R.style.Base_Theme_Snack2Go)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
         setup()
         sesion()
 
@@ -59,12 +61,20 @@ class LoginActivity : AppCompatActivity() {
     private fun sesion(){
         lateinit var prefs : SharedPreferences
         prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+
         val email :String? = prefs.getString("email", null)
+        val displayName :String? = prefs.getString("displayName", null)
+        val userPhoto :String? = prefs.getString("userPhoto",null)
         val provider :String? = prefs.getString("provider", null)
 
-        if(email != null && provider != null ){
+        if(email != null && displayName != null && provider != null ){
             //Inicio de la Home Activity
-            showHome(email, ProviderType.valueOf(provider))
+            if (userPhoto != null) {
+                showHome(email, displayName,userPhoto,ProviderType.valueOf(provider))
+            }
+            else{
+                showHome(email, displayName,"",ProviderType.valueOf(provider))
+            }
         }
     }
 
@@ -85,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
                 ).addOnCompleteListener {
                     if (it.isSuccessful) {
                         Toast.makeText(this,"Inicio Exitoso", Toast.LENGTH_SHORT).show()
-                        showHome(it.result?.user?.email ?:"", ProviderType.BASIC)
+                        showHome(it.result?.user?.email ?:"", it.result.user?.displayName ?:"","",ProviderType.BASIC)
                     }
                     else{
                         showAlert()
@@ -122,7 +132,12 @@ class LoginActivity : AppCompatActivity() {
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
                                         //Funcion que inicia la Home Activity
-                                        showHome(it.result?.user?.email ?: "", ProviderType.FACEBOOK)
+                                        val photo = try {
+                                            it.result?.user?.photoUrl.toString()
+                                        }catch (e :Exception){
+                                            ""
+                                        }
+                                        showHome(it.result?.user?.email ?: "", it.result?.user?.displayName ?:"",photo,ProviderType.FACEBOOK)
                                     } else {
                                         showAlert()
                                     }
@@ -157,12 +172,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     //Función para iniciar la Home Activity enviando el usuario y tipo de autenticación
-    private fun showHome(email:String, provider: ProviderType){
+    private fun showHome(email:String, displayName:String, photo :String,provider: ProviderType){
         val homeIntent : Intent = Intent(this, HomeActivity::class.java).apply {
             putExtra("email",email)
+            putExtra("displayName", displayName)
+            putExtra("profilePhoto",photo)
             putExtra("provider",provider.name)
         }
         startActivity(homeIntent)
+        finish()
     }
 
     @Deprecated("Deprecated in Java")
@@ -182,7 +200,15 @@ class LoginActivity : AppCompatActivity() {
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
                                 //
-                                showHome(account.email ?: "", ProviderType.GOOGLE)
+                                val email = account.email ?: ""
+                                val displayName = account.displayName ?:""
+                                val photo = try {
+                                    account.photoUrl.toString()
+                                }catch (e : Exception){
+                                    ""
+                                }
+                                showHome(email,displayName, photo,ProviderType.GOOGLE)
+
                             } else {
                                 showAlert()
                             }

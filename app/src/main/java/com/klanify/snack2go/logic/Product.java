@@ -2,39 +2,39 @@ package com.klanify.snack2go.logic;
 
 import java.io.Serializable;
 
-public class Producto implements Serializable {
+public class Product implements Serializable {
     private int idProducto;
     private String nombre;
     private String imagen;
     private String descripcion;
     private float precio;
     private int stock;
-    private CategoriaProductos categoria;
+    private ProductsCategory categoria;
     private int numberInCart;
 
-    public Producto()
+    public Product()
     {
 
     }
-    public Producto(String nombre, String imagen){
+    public Product(String nombre, String imagen){
         this.nombre = nombre;
         this.imagen = imagen;
     }
 
-    public Producto(String nombre, String imagen, float precio){
+    public Product(String nombre, String imagen, float precio){
         this.nombre = nombre;
         this.imagen = imagen;
         this.precio = precio;
     }
 
-    public Producto(String nombre, String imagen, String descripcion, float precio){
+    public Product(String nombre, String imagen, String descripcion, float precio){
         this.nombre = nombre;
         this.imagen = imagen;
         this.descripcion = descripcion;
         this.precio = precio;
     }
-    public Producto(int idProducto, String nombre, String imagen, String descripcion, float precio,
-                    int stock, CategoriaProductos categoria) {
+    public Product(int idProducto, String nombre, String imagen, String descripcion, float precio,
+                   int stock, ProductsCategory categoria) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.imagen = imagen;
@@ -91,11 +91,11 @@ public class Producto implements Serializable {
         this.stock = stock;
     }
 
-    public CategoriaProductos getCategoria(){
+    public ProductsCategory getCategoria(){
         return categoria;
     }
 
-    public void setCategoria(CategoriaProductos categoria){
+    public void setCategoria(ProductsCategory categoria){
         this.categoria = categoria;
     }
 

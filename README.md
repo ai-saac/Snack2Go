@@ -5,10 +5,10 @@ Snack2Go es una aplicación móvil desarrollada en Android que permite a los est
 ## Características principales
 
 - **Autenticación de dos tipos de usuarios:** Los estudiantes pueden reservar su colación diaria, mientras que los administradores gestionan el sistema.
-- **Reserva de colaciones:** Los estudiantes pueden seleccionar la fecha y elegir la colación de acuerdo con el menú del día y los productos en stock.
+- **Reserva de colaciones:** Los estudiantes pueden seleccionar la fecha y elegir la colación de acuerdo con el menú del día y los products en stock.
 - **Gestión de pedidos:** Los administradores pueden visualizar y gestionar las reservas, así como generar reportes de producción diaria.
 - **Interfaz intuitiva:** Diseño responsive y adaptativo para teléfonos y tablets, con iconos e imágenes para facilitar la navegación de los estudiantes.
-- **Recordatorios y notificaciones:** Los estudiantes reciben notificaciones sobre la confirmación de su reserva, cambios en el menú o productos, y recordatorios antes de ir a retirar su pedido.
+- **Recordatorios y notificaciones:** Los estudiantes reciben notificaciones sobre la confirmación de su reserva, cambios en el menú o products, y recordatorios antes de ir a retirar su pedido.
 - **Registro histórico:** Posibilidad de consultar históricos de reservas y pedidos por fecha ya procesados para mejorar la planificación.
 
 ## Cómo utilizar

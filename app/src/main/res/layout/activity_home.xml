@@ -81,7 +81,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/username"
+                    android:id="@+id/displayName_Home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -104,18 +104,18 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/greetingText"
-                    app:layout_constraintTop_toBottomOf="@+id/username"
+                    app:layout_constraintTop_toBottomOf="@+id/displayName_Home"
                     app:layout_constraintVertical_bias="0.0" />
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_photo"
-                    android:layout_width="70dp"
-                    android:layout_height="68dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginEnd="16dp"
+                    android:src="@mipmap/account"
                     app:layout_constraintBottom_toBottomOf="@+id/actionText"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/username"
-                    app:srcCompat="@mipmap/account" />
+                    app:layout_constraintTop_toTopOf="@+id/displayName_Home" />
 
                 <EditText
                     android:id="@+id/searchText"

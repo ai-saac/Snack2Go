@@ -14,14 +14,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/backImagePD"
+            android:id="@+id/closeImagePD"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.2"
+            android:layout_weight="0.1"
             android:paddingTop="14sp"
             android:paddingRight="14sp"
             android:paddingBottom="14sp"
-            app:srcCompat="@mipmap/backbutton"
+            app:srcCompat="@mipmap/close"
             app:tint="@color/buttonStroke" />
 
         <Space
@@ -29,17 +29,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <ImageView
-            android:id="@+id/settingsImagePD"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="2sp"
-            android:layout_weight="0.2"
-            android:paddingLeft="12sp"
-            android:paddingTop="12sp"
-            android:paddingBottom="12sp"
-            app:srcCompat="@mipmap/settings"
-            app:tint="@color/buttonStroke" />
     </LinearLayout>
 
     <ScrollView

@@ -82,7 +82,7 @@
                     app:layout_constraintTop_toTopOf="@+id/accountImageProfile">
 
                     <TextView
-                        android:id="@+id/names"
+                        android:id="@+id/displayNameProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
@@ -139,7 +139,7 @@
                             app:srcCompat="@mipmap/phone" />
 
                         <TextView
-                            android:id="@+id/textView4"
+                            android:id="@+id/mobileNumberText"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:paddingStart="10sp"

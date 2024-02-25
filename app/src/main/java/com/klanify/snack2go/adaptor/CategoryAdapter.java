@@ -13,26 +13,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.klanify.snack2go.R;
-import com.klanify.snack2go.logic.Categoria;
+import com.klanify.snack2go.logic.Category;
 
 import java.util.ArrayList;
 
-public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.ViewHolder>{
-    ArrayList<Categoria> categorias;
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder>{
+    ArrayList<Category> categories;
 
-    public CategoriaAdapter(ArrayList<Categoria> categorias) {
-        this.categorias = categorias;
+    public CategoryAdapter(ArrayList<Category> categories) {
+        this.categories = categories;
     }
     @NonNull
     @Override
-    public CategoriaAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category,parent,false);
-        return new CategoriaAdapter.ViewHolder(inflate);
+        return new CategoryAdapter.ViewHolder(inflate);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoriaAdapter.ViewHolder holder, int position) {
-        holder.categoryTitle.setText(categorias.get(position).getTitulo());
+    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
+        holder.categoryTitle.setText(categories.get(position).getTitle());
         String imageURL = "";
         switch (position){
             case 0: {
@@ -90,7 +90,7 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.View
 
     @Override
     public int getItemCount() {
-        return this.categorias.size();
+        return this.categories.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

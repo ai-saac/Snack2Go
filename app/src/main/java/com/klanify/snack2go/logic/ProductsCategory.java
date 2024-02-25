@@ -1,6 +1,6 @@
 package com.klanify.snack2go.logic;
 
-enum CategoriaProductos {
+enum ProductsCategory {
     BEBIDAS,
     SNACKS,
     PLATOS,

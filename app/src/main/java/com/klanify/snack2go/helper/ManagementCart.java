@@ -3,9 +3,8 @@ package com.klanify.snack2go.helper;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.klanify.snack2go.activity.ShoppingcartActivity;
 import com.klanify.snack2go.interfaces.ChangeNumberItemsListener;
-import com.klanify.snack2go.logic.Producto;
+import com.klanify.snack2go.logic.Product;
 
 import java.util.ArrayList;
 
@@ -18,8 +17,8 @@ public class ManagementCart {
         this.database = new TinyDB(context);
     }
 
-    public void insertProduct(Producto item){
-        ArrayList<Producto> productList = getListCart();
+    public void insertProduct(Product item){
+        ArrayList<Product> productList = getListCart();
         boolean existAlready = false;
         int n = 0;
         for(int i = 0; i<productList.size();i++) {
@@ -39,40 +38,40 @@ public class ManagementCart {
         Toast.makeText(context,"Agregado al Pedido",Toast.LENGTH_SHORT).show();
     }
 
-    public ArrayList<Producto> getListCart(){
+    public ArrayList<Product> getListCart(){
         return database.getListObject("CartList");
     }
 
-    public void plusNumberProduct(ArrayList<Producto> productos, int position, ChangeNumberItemsListener changeNumberItemsListener){
-        int numberInCart = productos.get(position).getNumberInCart();
-        productos.get(position).setNumberInCart(numberInCart + 1);
-        database.putListObject("CartList", productos);
+    public void plusNumberProduct(ArrayList<Product> products, int position, ChangeNumberItemsListener changeNumberItemsListener){
+        int numberInCart = products.get(position).getNumberInCart();
+        products.get(position).setNumberInCart(numberInCart + 1);
+        database.putListObject("CartList", products);
         changeNumberItemsListener.changed();
     }
 
-    public void minusNumberProduct(ArrayList<Producto> productos, int position, ChangeNumberItemsListener changeNumberItemsListener){
-        int numberInCart = productos.get(position).getNumberInCart();
+    public void minusNumberProduct(ArrayList<Product> products, int position, ChangeNumberItemsListener changeNumberItemsListener){
+        int numberInCart = products.get(position).getNumberInCart();
 
         if(numberInCart == 1){
-            productos.remove(position);
+            products.remove(position);
             Toast.makeText(context,"Producto Removido del Pedido",Toast.LENGTH_SHORT).show();
         }
         else{
-            productos.get(position).setNumberInCart(numberInCart - 1);
+            products.get(position).setNumberInCart(numberInCart - 1);
         }
 
-        database.putListObject("CartList", productos);
-        if(productos.size() == 0){
+        database.putListObject("CartList", products);
+        if(products.size() == 0){
 
         }
         changeNumberItemsListener.changed();
     }
 
     public float getSubTotal() {
-        ArrayList<Producto> productos = getListCart();
+        ArrayList<Product> products = getListCart();
         float subtotal = 0;
 
-        for(Producto element: productos){
+        for(Product element: products){
             subtotal += element.getPrecio() * element.getNumberInCart();
         }
         return subtotal;

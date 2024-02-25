@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.klanify.snack2go.R;
 import com.klanify.snack2go.helper.ManagementCart;
-import com.klanify.snack2go.logic.Producto;
+import com.klanify.snack2go.logic.Product;
 import com.klanify.snack2go.interfaces.ChangeNumberItemsListener;
 
 import java.util.ArrayList;
@@ -24,12 +24,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
     /**
      *
      */
-    private ArrayList<Producto> productos;
+    private ArrayList<Product> products;
     private ManagementCart managementCart;
     private ChangeNumberItemsListener changeNumberItemsListener;
 
-    public CartAdapter(ArrayList<Producto> productos, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
-        this.productos = productos;
+    public CartAdapter(ArrayList<Product> products, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
+        this.products = products;
         this.managementCart = new ManagementCart(context);
         this.changeNumberItemsListener = changeNumberItemsListener;
     }
@@ -43,13 +43,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.itemProductName.setText(productos.get(position).getNombre());
-        String price = String.valueOf(productos.get(position).getPrecio());
+        holder.itemProductName.setText(products.get(position).getNombre());
+        String price = String.valueOf(products.get(position).getPrecio());
         holder.itemPriceText.setText(price);
-        holder.number.setText(String.valueOf(productos.get(position).getNumberInCart()));
-        holder.itemTotalPriceText.setText(String.valueOf(productos.get(position).getPrecio() * productos.get(position).getNumberInCart()));
+        holder.number.setText(String.valueOf(products.get(position).getNumberInCart()));
+        holder.itemTotalPriceText.setText(String.valueOf(products.get(position).getPrecio() * products.get(position).getNumberInCart()));
 
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(productos.get(position).getImagen(),"mipmap",holder.itemView.getContext().getPackageName());
+        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(products.get(position).getImagen(),"mipmap",holder.itemView.getContext().getPackageName());
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.itemProductImage);
@@ -57,7 +57,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
         holder.minusitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                managementCart.minusNumberProduct(productos, position, new ChangeNumberItemsListener() {
+                managementCart.minusNumberProduct(products, position, new ChangeNumberItemsListener() {
                     @Override
                     public void changed() {
                         notifyDataSetChanged();
@@ -70,7 +70,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
         holder.plusitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                managementCart.plusNumberProduct(productos, position, new ChangeNumberItemsListener() {
+                managementCart.plusNumberProduct(products, position, new ChangeNumberItemsListener() {
                     @Override
                     public void changed() {
                         notifyDataSetChanged();
@@ -83,7 +83,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return productos.size();
+        return products.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

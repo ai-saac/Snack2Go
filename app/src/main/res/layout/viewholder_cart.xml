@@ -28,8 +28,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6sp"
-        android:layout_marginTop="12sp"
+        android:layout_marginTop="4sp"
         android:text="Title"
+        android:textColor="@color/secondary_color"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/itemProductImage"
@@ -60,6 +61,7 @@
             android:gravity="center"
             android:text="1"
             android:textAlignment="center"
+            android:textColor="@color/secondary_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -79,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="0"
+        android:textColor="@color/gris_natural"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/itemProductName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,12 +103,14 @@
         android:id="@+id/itemTotalPriceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="0"
+        android:textColor="@color/secondary_color"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/plusBtnCart"
         app:layout_constraintEnd_toEndOf="@+id/itemPriceText"
-        app:layout_constraintTop_toTopOf="@+id/plusBtnCart" />
+        app:layout_constraintTop_toBottomOf="@+id/itemPriceText" />
 
     <TextView
         android:id="@+id/textView11"
